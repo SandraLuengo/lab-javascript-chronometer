@@ -19,11 +19,11 @@ Chronometer.prototype.startClick = function () {
 };
 
 Chronometer.prototype.setMinutes = function () {
-    return Math.floor(this.currentTime/60/60);
+    return Math.floor(this.currentTime/100/60)%60;
 };
 
 Chronometer.prototype.setSeconds = function () {    
-    return Math.floor(this.currentTime/60)%60;
+    return Math.floor(this.currentTime/100)%60;
    
   
 };
@@ -43,6 +43,7 @@ Chronometer.prototype.twoDigitsNumber = function (number) {
 
 Chronometer.prototype.setTime = function () {
     var minutes=this.twoDigitsNumber(this.setMinutes());
+    console.log(minutes)
     var seconds=this.twoDigitsNumber(this.setSeconds());
     var miliseconds=this.twoDigitsNumber(this.setMilliseconds());
     printTime(minutes,seconds,miliseconds);
